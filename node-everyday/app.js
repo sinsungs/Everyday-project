@@ -3,12 +3,8 @@ const path = require('path');
 const morgan = require('morgan');
 const cors = require('cors');
 const { sequelize } = require('./models');
-
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const commentsRouter = require('./routes/comments');
-const scheduleRouter = require('./routes/schedule');
-const habitRouter = require('./routes/habit');
+
 
 const app = express();
 app.set('port', process.env.PORT || 8080);
@@ -40,10 +36,9 @@ app.use(express.urlencoded({ extended: false }));
 
 // 라우팅 모듈을 불러옵니다.
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/comments', commentsRouter);
-app.use('/schedule', scheduleRouter);
-app.use('/habit', habitRouter);
+app.use('/user', indexRouter);
+app.use('/schedule', indexRouter);
+app.use('/habit', indexRouter);
 
 
     app.use((req, res, next) => {
