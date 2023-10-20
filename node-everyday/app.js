@@ -25,6 +25,13 @@ app.use(cors({              // front 서버인 127.0.0.1:8080 의 요청을 허�
     origin: 'http://localhost:8080',
     credentials:true,
 }));
+
+app.get('/proxy', (req, res) => {
+    // 이 예제에서는 단순한 응답을 보냅니다. 실제로는 데이터베이스 쿼리 또는 다른 비즈니스 로직을 수행할 수 있습니다.
+    const responseData = '프록시 연결에 성공했습니다.';
+    res.send(responseData);
+  });
+
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
