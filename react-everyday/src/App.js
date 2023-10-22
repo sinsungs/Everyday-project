@@ -3,14 +3,16 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-// import Header from './components/Header';
+import Header from './components/Header';
 // import Footer from './components/Footer';
 
 // import Meet from './pages/Meeting';
 
 // import Join from './pages/Join';
-// import Login from './pages/Login';
+  // import Login from './pages/Login';
 // import MyPage from './pages/MyPage';
+  import Calendar from './pages/Calendar';
+  import Habit from './pages/Habit';
 
 
 function App() {
@@ -33,31 +35,24 @@ function App() {
   };
 
   return (
+
+    
     
     <Router>
       <div>
         <button onClick={handleButtonClick}>Proxy 테스트</button>
       </div>
 
-        {/* <Header /> */}
-
-        {/* <Banner /> */}
-        {/* <Category /> */}
-
+        <Header />
+        <Habit />
+        <Calendar />
 
         <Routes>
 
-          {/* <Route path="/" element={<Meet/>}/>
-          <Route path="/login" element={<Login/>}/>
+
+          {/* <Route path="/login" element={<Login/>}/>
           <Route path="/mypage" element={<MyPage/>}/>
-          <Route path="/join" element={<Join/>}/>
-
-          <Route path="/meet" element={<Meet/>}/>
-          <Route path="/Influencer" element={<Influencer/>}/>
-          <Route path="/post" element={<RecommendPost/>}/>
-          <Route path="/list" element={<RecommendList/>}/>
-          <Route path="/rank" element={<Ranking/>}/> */}
-
+          <Route path="/join" element={<Join/>}/> */}
 
 
         </Routes>
