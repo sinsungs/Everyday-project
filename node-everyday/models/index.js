@@ -1,7 +1,7 @@
 
 const Sequelize = require('sequelize');
 const User = require('./user');
-const Schedule = require('./schedule');
+const Habit = require('./habit');
 
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
@@ -12,12 +12,12 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 db.sequelize = sequelize;
 
 db.User = User;
-db.Schedule = Schedule;
+db.Habit = Habit;
 
 User.initiate(sequelize);
-Schedule.initiate(sequelize);
+Habit.initiate(sequelize);
 
-User.associate(db);
-Schedule.associate(db);
+// User.associate(db);
+// Habit.associate(db);
 
 module.exports = db;

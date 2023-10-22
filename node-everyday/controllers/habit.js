@@ -1,49 +1,50 @@
 const Habit = require('../models/habit')
 
 
-// exports.getAllSchedules = async (req, res, next) => {
+exports.createHabit = async (req, res, next) => {
+    try {
+    const habit = await Habit.create({
+        title: req.body.title,
+        count: req.body.count,
+    });
+        console.log(habit);
+        res.status(201).json(habit);
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+};
+
+
+exports.getAllHabits = async (req, res, next) => {
+    try {
+        const habits = await Habit.findAll();
+        res.json(habits);
+        console.log(habits);
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+};
+
+
+// exports.updateHabit = async (req, res, next) => {
 //     try {
-//       const schedules = await Schedule.findAll();
-//       res.json(schedules);
-//     } catch (err) {
-//       console.error(err);
-//       next(err);
-//     }
-// };
-
-
-// exports.createSchedule = async (req, res, next) => {
-//     try {
-//       const schedule = await Schedule.create({
-//         writer: req.body.id,
-//         plan: req.body.plan,
-//       });
-//       console.log(schedule);
-//       res.status(201).json(schedule);
-//     } catch (err) {
-//       console.error(err);
-//       next(err);
-//     }
-// };
-
-
-// exports.updateSchedule = async (req, res, next) => {
-//     try {
-//       const result = await Schedule.update(
+//         const result = await Habit.update(
 //         { plan: req.body.plan },
 //         { where: { id: req.params.id } }
-//       );
-//       res.json(result);
+//         );
+//             res.json(result);
 //     } catch (err) {
-//       console.error(err);
-//       next(err);
+//         console.error(err);
+//         next(err);
 //     }
 // };
 
 
-// exports.deleteSchedule = async (req, res, next) => {
+// exports.deleteHabit = async (req, res, next) => {
 // try {
-//     const result = await Schedule.destroy({ where: { id: req.params.id } });
+//     const result = await Habit.destroy({ where: { id: req.params.id } });
 //     res.json(result);
 // } catch (err) {
 //     console.error(err);

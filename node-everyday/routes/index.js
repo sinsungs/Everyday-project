@@ -1,24 +1,27 @@
 const express = require('express');
 const userController = require('../controllers/user');
-const scheduleController = require('../controllers/schedlue');
-const commentController = require('../controllers/commentController'); 
 const habitController = require('../controllers/habit'); 
-const { isLoggedIn } = require('../middlewares');
+// const { isLoggedIn } = require('../middlewares');
 
 
 const router = express.Router();
 
+router.post('/user', userController.postUser);
 router.get('/user', userController.getUsers);
-router.post('/user', userController.postUsers);
 
-router.post('/comment', habitController.createComment);
-router.get('/comment/:id', habitController.getComments);
-router.patch('/comment/:id', habitController.updateComment);
-router.delete('/comment/:id', habitController.deleteComment);
 
-router.get('/schedule', scheduleController.getAllSchedules);
-router.post('/schedule', scheduleController.createSchedule);
-router.patch('/schedule/:id', scheduleController.updateSchedule);
-router.delete('/schedule/:id', scheduleController.deleteSchedule);
+// router.post('/comment', habitController.createComment);
+// router.get('/comment', scheduleController.getAllComments);
+// router.get('/comment/:id', habitController.getComment);
+// router.patch('/comment/:id', habitController.updateComment);
+// router.delete('/comment/:id', habitController.deleteComment);
+
+router.post('/habit', habitController.createHabit);
+router.get('/habit/getList', habitController.getAllHabits);
+// router.get('/schedule/:id', habitController.getSchedule);
+// router.patch('/habit/:id', habitController.updateSchedule);
+// router.delete('/habit/:id', habitController.deleteSchedule);
+
+
 
 module.exports = router;

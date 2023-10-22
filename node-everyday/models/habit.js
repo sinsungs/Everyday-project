@@ -2,9 +2,13 @@ const Sequelize = require('sequelize');
 
 class Habit extends Sequelize.Model {
     static initiate(sequelize) {
-        Schedule.init({
-            habit: {
+        Habit.init({
+            title: {
                 type: Sequelize.STRING(100),
+                allowNull: false,
+            },
+            count: {
+                type: Sequelize.INTEGER,
                 allowNull: false,
             },
             created_at: {
@@ -23,9 +27,9 @@ class Habit extends Sequelize.Model {
         });
     }
 
-    static associate(db) {
-        db.Habit.belongsTo(db.User, { foreignKey: 'writer', targetKey: 'id' });
-    }
+    // static associate(db) {
+    //     db.Habit.belongsTo(db.User, { foreignKey: 'writer', targetKey: 'id' });
+    // }
 };
 
 module.exports = Habit;

@@ -10,7 +10,7 @@ exports.getUsers = async (req, res, next) => {
     }
 };
 
-exports.postUsers = async (req, res, next) => {
+exports.postUser = async (req, res, next) => {
 try {
     const user = await User.create({
     email: req.body.email,

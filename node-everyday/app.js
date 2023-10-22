@@ -7,7 +7,7 @@ const indexRouter = require('./routes/index');
 
 
 const app = express();
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 8000);
 sequelize.sync({ force: false })
 .then(() => {
     console.log('데이터베이스 연결 성공');
@@ -18,7 +18,7 @@ sequelize.sync({ force: false })
 
 // app.use(cors()); // 모든 Origin에서의 요청을 허용
 app.use(cors({              // front 서버인 127.0.0.1:8080 의 요청을 허용하도록 cors 사용
-    origin: 'http://localhost:8080',
+    origin: 'http://localhost:3000',
     credentials:true,
 }));
 
@@ -37,7 +37,6 @@ app.use(express.urlencoded({ extended: false }));
 // 라우팅 모듈을 불러옵니다.
 app.use('/', indexRouter);
 app.use('/user', indexRouter);
-app.use('/schedule', indexRouter);
 app.use('/habit', indexRouter);
 
 
