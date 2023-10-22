@@ -18,6 +18,7 @@ router.get('/user', userController.getUsers);
 
 router.post('/habit', habitController.createHabit);
 router.get('/habit/getList', habitController.getAllHabits);
+router.get('/habit/getStatus', habitController.getAllHabitStatues);
 // router.get('/schedule/:id', habitController.getSchedule);
 // router.patch('/habit/:id', habitController.updateSchedule);
 // router.delete('/habit/:id', habitController.deleteSchedule);
