@@ -29,9 +29,22 @@ function Habit() {
         setIsModalOpen(false); // 모달 창 닫기
     };
 
-    useEffect(() => {
+  //   useEffect(() => {
+  //   // Make a GET request to your server endpoint
+  //   axios.get('/habit/getList')
+  //     .then(response => {
+  //       // Assuming your server returns an array of habits
+  //       setHabits(response.data);
+  //       setRecoil(response.data)
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching data:', error);
+  //     });
+  // }, []);
+
+  useEffect(() => {
     // Make a GET request to your server endpoint
-    axios.get('/habit/getList')
+    axios.get('/habit/getStatus')
       .then(response => {
         // Assuming your server returns an array of habits
         setHabits(response.data);
@@ -41,7 +54,6 @@ function Habit() {
         console.error('Error fetching data:', error);
       });
   }, []);
-
 
 
 
