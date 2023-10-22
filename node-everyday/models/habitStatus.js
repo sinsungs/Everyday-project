@@ -1,26 +1,23 @@
 const Sequelize = require('sequelize');
 
-class Habit extends Sequelize.Model {
+class HabitStatus extends Sequelize.Model {
     static initiate(sequelize) {
-        Habit.init({
-            title: {
-                type: Sequelize.STRING(100),
-                allowNull: false,
-            },
-            count: {
+        HabitStatus.init({
+
+            status: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
             },
-            created_at: {
+            date: {
                 type: Sequelize.DATE,
                 allowNull: true,
-                defaultValue: Sequelize.NOW,
-            },
+            }
+            
         }, {
             sequelize,
             timestamps: false,
-            modelName: 'Habit',
-            tableName: 'habits',
+            modelName: 'HabitStatus',
+            tableName: 'habitStatus',
             paranoid: false,
             charset: 'utf8mb4',
             collate: 'utf8mb4_general_ci',
@@ -29,9 +26,8 @@ class Habit extends Sequelize.Model {
 
 
     static associate(db) {
-        db.Habit.hasMany(db.HabitStatus);
+        db.HabitStatus.belongsTo(db.Habit);
     }
-
 };
 
-module.exports = Habit;
+module.exports = HabitStatus;
